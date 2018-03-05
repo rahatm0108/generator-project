@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Generator Project</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    $(function() {
+      $('button').click(function() {
+        var name = $('#name').val();
+        var sport = $('#sport').val();
+        var hometown = $('#hometown').val();
+        $('h1').html("Certificate ");
+        $('h2').html("This award is presented to: " + name + " from " + hometown + " for excellence in " + sport);
+
+
+        if ($('#random').is(':checked')) { //only works when selected
+          var colors = ['red', 'green', 'blue', 'orange', 'purple', 'pink', 'brown'];
+          var randomBackground = colors[Math.floor(Math.random() * colors.length)];
+          $('#award').css('background-color', randomBackground);
+
+          var fonts = ["Arial", "Helvetica", "Times New Roman", "Palatino", "Courier New", "sans-serif", "Impact"];
+          var randomFonts = fonts[Math.floor(Math.random() * fonts.length)];
+          $('h2').css("font-family", randomFonts);
+        }
+
+
+      });
+    });
+  </script>
+</head>
+<style>
+  div {
+    background-color: gold;
+    color: white;
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 25px;
+    border-style: solid;
+    border-color: black
+  }
+
+  h1 {
+    text-align: center;
+
+  }
+
+  h2 {
+    font-family: cursive;
+    text-align: center;
+  }
+</style>
+
+<body>
+
+  Name: <input id="name">
+  <br> Favorite Sport: <input id="sport"><br> Hometown: <input id="hometown"><br>
+  <input type="radio" id="random"> Randomize Background Color and Change Font
+
+
+  <br><br>
+
+  <button>Generate Award!</button>
+  <div id="award">
+    <h1></h1>
+    <h2></h2>
+
+    <p></p>
+  </div>
+
+
+</body>
+
+</html>
